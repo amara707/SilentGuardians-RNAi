@@ -1,0 +1,50 @@
+In this project, I followed a structured pipeline to produce results:
+ 
+    1.Quality Check: Used FastQC and MultiQC to assess the quality of raw reads.
+    2.Adapter Removal: Tested Cutadapt, Trimmomatic, and BBduk; utilized Cutadapt for adapter trimming.
+    3.Read Filtering: Filtered clean reads longer than 18 nts using CutAdapt.
+    4.De Novo Assembly: Evaluated Velvet and Trinity; used Trinity for contig assembly.
+    5.Assembly Validation: Employed QUAST to verify assembly quality.
+    6.Contig Filtering: Used BBMap's reformat.sh to filter contigs longer than 700 nts.
+    7.Database Preparation: Created a custom plant virus database with makeblastdb.
+    8.Sequence Alignment: Locally aligned contigs to the virus database using Blastn.
+    9.Result Processing: Developed a custom script to extract best hits for each sample.
+    10.Mapping: Utilized BWA for read mapping.
+    11.Visualization: Used Tablet for visualization and verification of mapping results.
+    12.Coverage Analysis: Employed SAMtools for coverage and depth calculation. 
+
+       [Quality Check]
+           |
+        [FastQC] ---> [MultiQC]
+           |
+     [Adapter Removal]
+     /     |         \
+[BBDuk] [Cutadapt]   [Trimmomatic]
+           |
+     [Read Filtering]
+           |
+      [Length > 18]
+           |
+   [De Novo Assembly]
+      /           \
+  [Velvet]   [Trinity]
+        |        |
+      [Assembly quality check; QUAST]
+        |
+  [Contig Filtering; BBMap's reformat.sh]
+        |
+  [Length > 700 nts]
+        |
+  [Database Preparation; makeblastdb]
+        |
+  [Sequence Alignment; Blastn]
+        |
+  [Result Processing]
+        |
+  [Custom script]
+        |
+  [Mapping; BWA]
+        |
+  [Visualization; Tablet]
+        |
+  [Coverage Analysis; SAMtools]
