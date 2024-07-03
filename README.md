@@ -9,8 +9,11 @@ Plant viruses pose a significant threat to global agriculture, exacerbated by cl
 ## Objectives
 
   **Dataset Selection:** Select monocot plants from the SRA database for analysis.
+  
   **Bioinformatic Pipeline:** Develop a bioinformatics pipeline to detect viral infections using small RNA-sequencing data.
+  
   **Mechanistic Study:** Investigate RNA silencing mechanisms in three plant-virus systems.
+  
   **Model Proposal:** Propose a model to characterize RNA silencing mechanisms in monocot plants.
 
 ## Impact
