@@ -1,0 +1,11 @@
+#We used Cutadapt to filter reads longer than 18 nts 
+#To filter only reads longer than 18 nts (For clean reads)
+#!/bin/bash
+# Create output directory if it doesn't exist
+mkdir -p ~/monster/no_shorties
+
+# Iterate over each input file
+for input_file in ~/monster/Data/merged_sequences_short/*.fastq; do
+    output_file=~/monster/no_shorties/$(basename "${input_file}") 
+    cutadapt -m 18 -j 12 -o "${output_file}" "${input_file}" 
+done
