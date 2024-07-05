@@ -13,6 +13,8 @@ In this project, I followed a structured pipeline to produce results:
     11.Visualization: Used Tablet for visualization and verification of mapping results.
     12.Coverage Analysis: Employed SAMtools for coverage and depth calculation. 
 
+      [Download accessions]
+           |
        [Quality Check]
            |
         [FastQC] ---> [MultiQC]
