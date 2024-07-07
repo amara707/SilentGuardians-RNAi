@@ -4,12 +4,14 @@
 # Directories and files
 OUTPUT_DIR="/home/msi/monster/bwa_vf/R_man"
 BAM_FILES=(
-    "/home/msi/monster/bwa_vf/B2/B2_LC758578.1_sorted.bam"
-    "/home/msi/monster/bwa_vf/B2/B2_HQ442266.1_sorted.bam"
+    "/home/msi/monster/bwa_vf/B1/B1_HQ442266.1_sorted.bam" 
+    "/home/msi/monster/bwa_vf/B1/B1_LC485018.1_sorted.bam" 
+    "/home/msi/monster/bwa_vf/B1/B1_LN680393.2_sorted.bam"
 )
 SAMPLE_NAMES=(
-    "B2_LC758578.1"
-    "B2_HQ442266.1"
+    "M. acuminata AAA Group_HQ442266.1"
+    "M. acuminata AAA Group_LC485018.1"
+    "M. acuminata AAA Group_LN680393.2"
 )
 
 # Create output directory if it doesn't exist
@@ -38,12 +40,15 @@ for i in "${!BAM_FILES[@]}"; do
     }'
 done
 
+
 #R_script 
 library(ggplot2)
 
 # Define the base directory and sample names
 base_dir <- "/home/msi/monster/bwa_vf/R_man"
-sample_names <- c("B2_LC758578.1", "B2_HQ442266.1")
+sample_names <- c(    "M. acuminata AAA Group_HQ442266.1",
+    "M. acuminata AAA Group_LC485018.1",
+    "M. acuminata AAA Group_LN680393.2")
 
 # Loop through each sample
 for (sample in sample_names) {
@@ -77,8 +82,8 @@ for (sample in sample_names) {
   
   # Create the plot
   p <- ggplot(merged_data, aes(x = position)) +
-    geom_col(aes(y = coverage_below), fill = "grey") +
-    geom_col(aes(y = coverage_above), fill = "grey") +
+    geom_col(aes(y = coverage_below), fill = "black") +
+    geom_col(aes(y = coverage_above), fill = "black") +
     geom_hline(yintercept = 0) +
     facet_wrap(~ sample, scales = "free_x", ncol = 1) +  # Facet by sample
     theme_minimal() +
@@ -102,5 +107,3 @@ for (sample in sample_names) {
   print(p)
   dev.off()
 }
-
-
