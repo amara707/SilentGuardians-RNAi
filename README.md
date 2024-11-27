@@ -1,6 +1,6 @@
-# SilentGuardians-RNAi: Characterization of RNA Silencing in Monocotyledonous Plants
+# SilentGuardians-RNAi: Virus/viroid detection and RNA silencing characterization in four monocotyledonous plants.
 
-Welcome to the repository for my end-of-studies project focused on the characterization of RNA silencing in plant viruses within monocotyledonous plants.
+Welcome to the repository for our project focused on the virus/viroid detection and RNA silencing characterization in four monocotyledonous plants.
 
 ## Project Overview
 
